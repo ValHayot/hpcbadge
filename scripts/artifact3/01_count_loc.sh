@@ -1,9 +1,5 @@
 #!/usr/bin/env sh
 
-apt install -y cloc
-
-git clone --branch master --recursive https://github.com/kamping-site/kamping-pDCX
-
 cd kamping-pDCX
 
 echo "\e[34m**Results for Prefix Doubling**\e[0m"
