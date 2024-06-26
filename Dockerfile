@@ -50,7 +50,7 @@ ENV SETVARS_COMPLETED='1'
 # KaMPIng specific dependencies
 
 RUN apt update -y && apt upgrade -y && \
-    apt install -y gcc-12 g++-12
+    DEBIAN_FRONTEND=noninteractive apt install -y gcc-12 g++-12
 
 # Install CMake
 RUN wget https://cmake.org/files/v3.26/cmake-3.26.3-linux-x86_64.sh && \
@@ -58,12 +58,17 @@ RUN wget https://cmake.org/files/v3.26/cmake-3.26.3-linux-x86_64.sh && \
 
 # Install pyenv
 RUN apt update -y && apt upgrade -y && \
-    apt install -y pip && \
+    DEBIAN_FRONTEND=noninteractive apt install -y pip && \
     pip install pipenv
 
-# Install eval deps
+# Install dependencies for evaluation
+ENV TZ="Europe/Berlin"
 RUN apt update -y && apt upgrade -y && \
-    apt install -y cloc gawk
+    DEBIAN_FRONTEND=noninteractive apt install -y cloc gawk r-base
+
+# Install dependencies for RAxML-NG
+RUN apt update -y && apt upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt install -y flex bison libgmp3-dev
 
 # create a user `kamping`
 ARG USERNAME=kamping
