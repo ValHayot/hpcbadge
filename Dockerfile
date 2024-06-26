@@ -35,14 +35,14 @@ ENV CPATH="/opt/intel/oneapi/mpi/${VERSION}/include"
 ENV CPATH="/opt/intel/oneapi/tbb/${VERSION}/include:${CPATH}"
 ENV FI_PROVIDER_PATH="/opt/intel/oneapi/mpi/${VERSION}/opt/mpi/libfabric/lib/prov:/usr/lib/x86_64-linux-gnu/libfabric"
 ENV I_MPI_ROOT="/opt/intel/oneapi/mpi/${VERSION}"
-ENV LD_LIBRARY_PATH="/opt/intel/oneapi/mpi/${VERSION}/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/2021.12/lib:${LD_LIBRARY_PATH}"
-ENV LD_LIBRARY_PATH="/opt/intel/oneapi/tbb/${VERSION}/lib${LD_LIBRARY_PATH}"
-ENV LIBRARY_PATH="/opt/intel/oneapi/mpi/${VERSION}/lib:${LIBRARY_PATH}"
+ENV LD_LIBRARY_PATH="/opt/intel/oneapi/mpi/${VERSION}/opt/mpi/libfabric/lib:/opt/intel/oneapi/mpi/${VERSION}/lib"
+ENV LD_LIBRARY_PATH="/opt/intel/oneapi/tbb/${VERSION}/lib:${LD_LIBRARY_PATH}"
+ENV LIBRARY_PATH="/opt/intel/oneapi/mpi/${VERSION}/lib"
 ENV LIBRARY_PATH="/opt/intel/oneapi/tbb/${VERSION}/lib:${LIBRARY_PATH}"
-ENV MANPATH="/opt/intel/oneapi/mpi/${VERSION}/share/man:${MANPATH}"
+ENV MANPATH="/opt/intel/oneapi/mpi/${VERSION}/share/man"
 ENV ONEAPI_ROOT="/opt/intel/oneapi"
 ENV PATH="/opt/intel/oneapi/mpi/${VERSION}/bin:${PATH}"
-ENV PKG_CONFIG_PATH="/opt/intel/oneapi/mpi/${VERSION}/lib/pkgconfig:${PKG_CONFIG_PATH}"
+ENV PKG_CONFIG_PATH="/opt/intel/oneapi/mpi/${VERSION}/lib/pkgconfig:"
 ENV PKG_CONFIG_PATH="/opt/intel/oneapi/tbb/${VERSION}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 ENV TBBROOT="/opt/intel/oneapi/tbb/${VERSION}"
 ENV SETVARS_COMPLETED='1'
@@ -64,7 +64,7 @@ RUN apt update -y && apt upgrade -y && \
 # Install dependencies for evaluation
 ENV TZ="Europe/Berlin"
 RUN apt update -y && apt upgrade -y && \
-    DEBIAN_FRONTEND=noninteractive apt install -y cloc gawk r-base
+    DEBIAN_FRONTEND=noninteractive apt install -y cloc gawk r-base texlive texlive-pictures
 
 # Install dependencies for RAxML-NG
 RUN apt update -y && apt upgrade -y && \
