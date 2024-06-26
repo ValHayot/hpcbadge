@@ -1,2 +1,7 @@
 kamping-examples/
+experiment_out/
 Pipfile.lock
+bfs.csv
+bfs.pdf
+sorting.csv
+sorting.pdf
