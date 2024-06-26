@@ -70,6 +70,10 @@ RUN apt update -y && apt upgrade -y && \
 RUN apt update -y && apt upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt install -y flex bison libgmp3-dev
 
+# Install some editors to make things simpler
+RUN apt update -y && apt upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt install -y vim nano tmux
+
 # create a user `kamping`
 ARG USERNAME=kamping
 ARG USER_ID=1000
