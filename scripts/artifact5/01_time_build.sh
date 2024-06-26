@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-git clone --branch reference \
-    --recursive https://github.com/kamping-site/kamping-raxml-ng raxml-ng
 cd raxml-ng
 cmake -B build -DUSE_MPI=ON
 
