@@ -64,7 +64,8 @@ RUN apt update -y && apt upgrade -y && \
 # Install dependencies for evaluation
 ENV TZ="Europe/Berlin"
 RUN apt update -y && apt upgrade -y && \
-    DEBIAN_FRONTEND=noninteractive apt install -y cloc gawk r-base texlive texlive-pictures
+    DEBIAN_FRONTEND=noninteractive apt install -y cloc gawk r-base texlive texlive-pictures jq && \
+    R -e "install.packages(c('plyr', 'dplyr'))"
 
 # Install dependencies for RAxML-NG
 RUN apt update -y && apt upgrade -y && \

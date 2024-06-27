@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-./kamping-label-propagation/logs2result.sh experiment_out
+./kamping-label-propagation/logs2results.sh experiment_out
 
 echo "Results written to {PlainMPi, KaMPIngWrapper dKaMinParWrapper}.csv"
 
