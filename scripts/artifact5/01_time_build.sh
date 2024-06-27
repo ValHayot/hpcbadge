@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
 cd raxml-ng
-cmake -B build -DUSE_MPI=ON
+cmake -B build -DUSE_MPI=ON     \
+    -DCMAKE_CXX_COMPILER=g++-12 \
+    -DCMAKE_C_COMPILER=gcc-12
 
 cd ..
 
 cd kamping-raxml-ng
-cmake -B build -DUSE_MPI=ON
+cmake -B build -DUSE_MPI=ON     \
+    -DCMAKE_CXX_COMPILER=g++-12 \
+    -DCMAKE_C_COMPILER=gcc-12
 
 cd ..
 
