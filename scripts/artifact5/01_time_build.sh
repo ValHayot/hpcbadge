@@ -5,9 +5,6 @@ cmake -B build -DUSE_MPI=ON
 
 cd ..
 
-git clone --branch kamping-integration \
-    --recursive https://github.com/kamping-site/kamping-raxml-ng
-
 cd kamping-raxml-ng
 cmake -B build -DUSE_MPI=ON
 
