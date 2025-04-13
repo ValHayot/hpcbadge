@@ -63,7 +63,7 @@ jobs:
           shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact2 && bash 00_fetch_source.sh && bash 01_build_benchmarks.sh && bash 02_count_loc.sh && bash 03_run_sorting.sh && bash 04_run_bfs.sh && 05_eval_sorting.sh && 06_eval_bfs.sh || true"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
-      - name: Archive a1 output stdout
+      - name: Archive a2 output stdout
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
@@ -75,3 +75,69 @@ jobs:
         with:
           name: a2-stderr-${{ matrix.endpoint_uuid }}
           path: ${{ steps.a2.outputs.stderr }}
+      - name: run Artifact3
+        id: a3
+        uses: ValHayot/globus-compute-github-action@v1
+        with:
+          client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
+          client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
+          endpoint_uuid: ${{ matrix.endpoint_uuid }}
+          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact3 && bash 00_fetch_source.sh && bash 01_count_loc.sh || true"
+          user_endpoint_config: ${{ matrix.user_endpoint_config }}
+          clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
+      - name: Archive a3 output stdout
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a3-stdout-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a3.outputs.stdout }}
+      - name: Archive a3 output stderr
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a3-stderr-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a3.outputs.stderr }}
+      - name: run Artifact4
+        id: a4
+        uses: ValHayot/globus-compute-github-action@v1
+        with:
+          client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
+          client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
+          endpoint_uuid: ${{ matrix.endpoint_uuid }}
+          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact4 && bash 00_fetch_source.sh && bash 01_build_benchmark.sh && bash 02_count_loc.sh && bash 03_run_benchmark.sh && bash 04_eval.sh || true"
+          user_endpoint_config: ${{ matrix.user_endpoint_config }}
+          clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
+      - name: Archive a4 output stdout
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a4-stdout-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a4.outputs.stdout }}
+      - name: Archive a4 output stderr
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a4-stderr-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a4.outputs.stderr }}
+      - name: run Artifact5
+        id: a5
+        uses: ValHayot/globus-compute-github-action@v1
+        with:
+          client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
+          client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
+          endpoint_uuid: ${{ matrix.endpoint_uuid }}
+          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact5 && bash 00_fetch_source.sh && bash 01_time_build.sh && bash 02_binary_size.sh || true"
+          user_endpoint_config: ${{ matrix.user_endpoint_config }}
+          clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
+      - name: Archive a5 output stdout
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a5-stdout-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a5.outputs.stdout }}
+      - name: Archive a5 output stderr
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a5-stderr-${{ matrix.endpoint_uuid }}
+          path: ${{ steps.a5.outputs.stderr }}
