@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,7 +17,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - endpoint_uuid: '72a033c0-c9b4-4815-980b-b7cde5d957bf'
+          - endpoint_uuid: 'c1b19fba-433b-4632-a0f2-d75e92ae93a8'
             user_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             clone_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             
