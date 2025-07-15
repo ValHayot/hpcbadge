@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - endpoint_uuid: '78f86357-337e-4df3-8ec2-e05080c3e521'
+          - endpoint_uuid: '4e0d7f77-140b-4221-95c0-6c0d801566bb'
             user_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             clone_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             
