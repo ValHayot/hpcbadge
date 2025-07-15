@@ -34,12 +34,12 @@ jobs:
           cache: 'pip'
       - name: run Artifact1
         id: a1
-        uses: ValHayot/globus-compute-github-action@v1
+        uses: globus-labs/correct@v1
         with:
           client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
           client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
           endpoint_uuid: ${{ matrix.endpoint_uuid }}
-          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact1 && bash 00_fetch_source.sh && bash 01_build.sh && bash 02_run_tests.sh"
+          shell_cmd: "cd gc-action-temp/hpcbadge/artifact1 && bash 00_fetch_source.sh && bash 01_build.sh && bash 02_run_tests.sh"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
       - name: Archive a1 output stdout
@@ -56,12 +56,12 @@ jobs:
           path: ${{ steps.a1.outputs.stderr }}
       - name: run Artifact2
         id: a2
-        uses: ValHayot/globus-compute-github-action@v1
+        uses: globus-labs/correct@v1
         with:
           client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
           client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
           endpoint_uuid: ${{ matrix.endpoint_uuid }}
-          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact2 && bash 00_fetch_source.sh && bash 01_build_benchmarks.sh && bash 02_count_loc.sh && bash 03_run_sorting.sh && bash 04_run_bfs.sh && 05_eval_sorting.sh && 06_eval_bfs.sh || true"
+          shell_cmd: "cd gc-action-temp/hpcbadge/artifact2 && bash 00_fetch_source.sh && bash 01_build_benchmarks.sh && bash 02_count_loc.sh && bash 03_run_sorting.sh && bash 04_run_bfs.sh && 05_eval_sorting.sh && 06_eval_bfs.sh || true"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
       - name: Archive a2 output stdout
@@ -78,12 +78,12 @@ jobs:
           path: ${{ steps.a2.outputs.stderr }}
       - name: run Artifact3
         id: a3
-        uses: ValHayot/globus-compute-github-action@v1
+        uses: globus-labs/correct@v1
         with:
           client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
           client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
           endpoint_uuid: ${{ matrix.endpoint_uuid }}
-          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact3 && bash 00_fetch_source.sh && bash 01_count_loc.sh || true"
+          shell_cmd: "cd gc-action-temp/hpcbadge/artifact3 && bash 00_fetch_source.sh && bash 01_count_loc.sh || true"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
       - name: Archive a3 output stdout
@@ -100,12 +100,12 @@ jobs:
           path: ${{ steps.a3.outputs.stderr }}
       - name: run Artifact4
         id: a4
-        uses: ValHayot/globus-compute-github-action@v1
+        uses: globus-labs/correct@v1
         with:
           client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
           client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
           endpoint_uuid: ${{ matrix.endpoint_uuid }}
-          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact4 && bash 00_fetch_source.sh && bash 01_build_benchmark.sh && bash 02_count_loc.sh && bash 03_run_benchmark.sh && bash 04_eval.sh || true"
+          shell_cmd: "cd gc-action-temp/hpcbadge/artifact4 && bash 00_fetch_source.sh && bash 01_build_benchmark.sh && bash 02_count_loc.sh && bash 03_run_benchmark.sh && bash 04_eval.sh || true"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
       - name: Archive a4 output stdout
@@ -122,12 +122,12 @@ jobs:
           path: ${{ steps.a4.outputs.stderr }}
       - name: run Artifact5
         id: a5
-        uses: ValHayot/globus-compute-github-action@v1
+        uses: globus-labs/correct@v1
         with:
           client_id: ${{ secrets.GLOBUS_COMPUTE_CLIENT_ID }}
           client_secret: ${{ secrets.GLOBUS_COMPUTE_CLIENT_SECRET }}
           endpoint_uuid: ${{ matrix.endpoint_uuid }}
-          shell_cmd: "cd gc-action-temp/kamping-reproducibility/artifact5 && bash 00_fetch_source.sh && bash 01_time_build.sh && bash 02_binary_size.sh || true"
+          shell_cmd: "cd gc-action-temp/hpcbadge/artifact5 && bash 00_fetch_source.sh && bash 01_time_build.sh && bash 02_binary_size.sh || true"
           user_endpoint_config: ${{ matrix.user_endpoint_config }}
           clone_endpoint_config: ${{ matrix.clone_endpoint_config }}
       - name: Archive a5 output stdout
