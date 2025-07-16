@@ -17,13 +17,13 @@ jobs:
     strategy:
       matrix:
         include:
-          - endpoint_uuid: 'b5ab3b86-8687-4244-85ba-5a1c28b11b87'
+          - resource: 'chameleon'
+            endpoint_uuid: 'b5ab3b86-8687-4244-85ba-5a1c28b11b87'
             user_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             clone_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             
     runs-on: ubuntu-latest
     environment: hpcci
-
     steps:
       - name: Checkout
         id: checkout
