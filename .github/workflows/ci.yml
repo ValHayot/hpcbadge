@@ -18,7 +18,7 @@ jobs:
       matrix:
         include:
           - resource: 'chameleon'
-            endpoint_uuid: 'b5ab3b86-8687-4244-85ba-5a1c28b11b87'
+            endpoint_uuid: '16f762b2-5726-4224-a429-ffa9b5457765'
             user_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             clone_endpoint_config: '{ "WORKING_DIR": "/home/kamping"}'
             
